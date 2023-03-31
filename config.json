@@ -1,0 +1,28 @@
+{
+	"output": "output.json",
+	"repos": [
+		{
+			"url": "git@github.com:username/repository1.git",
+			"dir": "directory/to/analyse",
+			"scc": {
+				"include_ext": [],
+				"exclude_ext": [],
+				"exclude_dir": []
+			}
+		},
+		{
+			"url": "git@github.com:username/repository2.git",
+			"include_submodules": false,
+			"scc": {
+				"include_ext": [],
+				"exclude_ext": [],
+				"exclude_dir": []
+			}
+		}
+	],
+	"scc": {
+		"include_ext": [],
+		"exclude_ext": [],
+		"exclude_dir": []
+	}
+}
