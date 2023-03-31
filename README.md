@@ -21,14 +21,19 @@ Before you can use GitLocHistory, you need to have the following tools installed
    git clone git:github.com/lennartmoeller/GitLocHistory.git
    ```
 
-2. Modify the file named `config.json`. See the Configuration section for more details.
+2. Install the required Python packages.
+   ```shell
+   pip3 install -r GitLocHistory/requirements.txt
+   ```
 
-3. Run GitLocHistory.
+3. Modify the file named `config.json`. See the Configuration section for more details.
+
+4. Run GitLocHistory.
    ```shell
    python3 GitLocHistory/glh.py
    ```
 
-4. The output will be written to the output JSON file in the `GitLocHistory` directory.
+5. The output will be written to the output JSON file in the `GitLocHistory` directory.
 
 
 
