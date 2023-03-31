@@ -17,10 +17,10 @@ class Config:
     def __init__(self):
         """
         Config constructor.
-        Loads the configuration from the config file (config_espresso.json).
+        Loads the configuration from the config file (config.json).
         """
         # get config from file
-        with open('config_espresso.json') as config_file:
+        with open('config.json') as config_file:
             file_contents = config_file.read()
         config = loads(file_contents)
         # set output file
