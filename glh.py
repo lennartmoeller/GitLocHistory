@@ -75,6 +75,10 @@ def main():
     print("Writing result into output json...")
     with open(config.output_filename, 'w') as f:
         dump(commit_statistics, f)
+    print("Writing result into dist/data.js...")
+    with open("dist/data.js", 'w') as f:
+        f.write("const glhData = ")
+        dump(commit_statistics, f)
 
 
 if __name__ == '__main__':
