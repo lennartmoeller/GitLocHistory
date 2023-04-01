@@ -111,7 +111,6 @@ The output JSON file consists of a list of datapoint objects:
 - `code`: Number of lines of code
 - `comment`: Number of lines of comments
 - `blank`: Number of blank lines
-- `wcomplexity`: Weighted complexity
 
 Here is an example output:
 
@@ -122,16 +121,14 @@ Here is an example output:
     "lines": 35,
     "code": 24,
     "comment": 4,
-    "blank": 7,
-    "wcomplexity": 0
+    "blank": 7
   },
   {
     "timestamp": 1519937828,
     "lines": 92,
     "code": 68,
     "comment": 8,
-    "blank": 16,
-    "wcomplexity": 0
+    "blank": 16
   }
 ]
 ```
