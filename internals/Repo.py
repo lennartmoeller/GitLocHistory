@@ -20,6 +20,7 @@ class Repo:
     _config: RepoConfig
     _dir: str
     _git: git.Repo
+    _hash: str
 
     def __init__(self, config: RepoConfig):
         """
@@ -30,6 +31,7 @@ class Repo:
         self._config = config
         self._locs = 0
         self._git = self.clone_and_get_repo()
+        self._hash = self._git.git.rev_parse('HEAD', short=True)
 
     @property
     def config(self) -> RepoConfig:
@@ -43,7 +45,7 @@ class Repo:
         """
         :return: The hash of the current commit. Identifies the repository uniquely.
         """
-        return self._git.git.rev_parse('HEAD', short=True)
+        return self._hash
 
     @property
     def subrepos(self) -> list[Repo]:
