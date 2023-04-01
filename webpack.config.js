@@ -13,7 +13,8 @@ module.exports = {
 			svelte: path.dirname(require.resolve('svelte/package.json'))
 		},
 		extensions: ['.mjs', '.js', '.ts', '.svelte'],
-		mainFields: ['svelte', 'browser', 'module', 'main']
+		mainFields: ['svelte', 'browser', 'module', 'main'],
+		conditionNames: ['svelte', 'module', 'import', 'require']
 	},
 	output: {
 		filename: "[name].js",
