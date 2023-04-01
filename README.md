@@ -1,7 +1,8 @@
 # GitLocHistory
 
-GitLocHistory is a command-line tool that calculates the history of lines of code of one or multiple Git repositories and their submodules. It uses the `scc` command-line tool (https://github.com/boyter/scc) to do the counting.
+GitLocHistory is a command line tool that calculates and visualizes the history of total lines (LOC), code lines (SLOC), comment lines (CLOC) and empty lines (ELOC) of Git repositories. In addition to individual ones, multiple Git repositories and repositories with submodules can also be processed simultaneously, with the statistics summed together.
 
+GitLocHistory uses `scc` (https://github.com/boyter/scc), a gold standard for calculating lines of code.
 
 ![Demo Diagram](assets/demo-diagram.png)
 
@@ -16,7 +17,7 @@ Before you can use GitLocHistory, you need to have the following tools installed
 
 
 
-## Usage
+## Installation & Usage
 
 1. Clone the GitLocHistory repository to your local machine.
    ```shell
@@ -109,10 +110,10 @@ You can override submodules with a repository after the parent repository to hav
 The output JSON file consists of a list of datapoint objects:
 
 - `timestamp`: UNIX timestamp
-- `lines`: Total number of lines
-- `code`: Number of lines of code
-- `comment`: Number of lines of comments
-- `blank`: Number of blank lines
+- `lines`: Number of total lines (LOC)
+- `code`: Number of code lines (SLOC)
+- `comment`: Number of comment lines (CLOC)
+- `blank`: Number of empty lines (ELOC)
 
 Here is an example output:
 
