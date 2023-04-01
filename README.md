@@ -3,6 +3,8 @@
 GitLocHistory is a command-line tool that calculates the history of lines of code of one or multiple Git repositories and their submodules. It uses the `scc` command-line tool (https://github.com/boyter/scc) to do the counting.
 
 
+![Demo Diagram](assets/demo-diagram.png)
+
 
 ## Prerequisites
 
