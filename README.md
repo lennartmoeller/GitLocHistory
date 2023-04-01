@@ -33,7 +33,9 @@ Before you can use GitLocHistory, you need to have the following tools installed
    python3 GitLocHistory/glh.py
    ```
 
-5. The output will be written to the output JSON file in the `GitLocHistory` directory.
+5. Open the `viewer.html` file in your browser to view the result diagram.
+
+6. The output is saved in the output JSON file in the `GitLocHistory` directory.
 
 
 
