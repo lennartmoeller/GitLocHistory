@@ -3,11 +3,11 @@ from __future__ import annotations
 from json import dump
 from os import path
 from shutil import rmtree
-from typing import Literal
 
 from internals.Commit import Commit
 from internals.Config.Config import Config
 from internals.Constants import TMP_DIR
+from internals.Datapoint import Datapoint
 from internals.Repo import Repo
 
 
@@ -41,19 +41,21 @@ def create_sorted_commits(repos: dict[str, Repo]) -> list[Commit]:
     return sorted(commits, key=lambda c: c.timestamp)
 
 
-def calculate_loc_per_commit(commits: list[Commit]) -> list[dict[Literal["x", "y"], int]]:
+def calculate_commit_statics(commits: list[Commit]) -> list[dict[str, int]]:
     """
-    Calculates the loc per commit.
-    :param commits: The commits to calculate the loc for.
-    :return: A list of dicts with UNIX timestamp (x) and loc (y) for each commit.
+    :param commits: The commits to calculate the statistics for.
+    :return: The statistics per commit as a list of dictionaries.
     """
-    loc_per_commit: list[dict[Literal["x", "y"], int]] = []
-    loc_per_repo: dict[Repo, int] = {}
+    statistics_per_repo: dict[str, Datapoint] = {}
+    statistics_per_commit: list[dict[str, int]] = []
     for commit in commits:
         commit.checkout()
-        loc_per_repo[commit.repo] = commit.repo.loc
-        loc_per_commit.append({"x": commit.timestamp, "y": sum(loc_per_repo.values())})
-    return loc_per_commit
+        statistics_per_repo[commit.repo.hash] = commit.repo.statistics
+        commit_statistics: Datapoint = Datapoint(commit.timestamp)
+        for repo_statistics in statistics_per_repo.values():
+            commit_statistics.add(repo_statistics)
+        statistics_per_commit.append(commit_statistics.__dict__)
+    return statistics_per_commit
 
 
 def main():
@@ -66,13 +68,13 @@ def main():
     repos = create_repos(config)
     print("Collecting commits...")
     commits = create_sorted_commits(repos)
-    print("Calculating loc per commit...")
-    loc_per_commit = calculate_loc_per_commit(commits)
+    print("Calculating commit statistics...")
+    commit_statistics = calculate_commit_statics(commits)
     print("Removing tmp dir...")
     rmtree(TMP_DIR)
     print("Writing result into output json...")
     with open(config.output_filename, 'w') as f:
-        dump(loc_per_commit, f)
+        dump(commit_statistics, f)
 
 
 if __name__ == '__main__':

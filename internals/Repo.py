@@ -9,6 +9,7 @@ import git
 
 from internals.Config.RepoConfig import RepoConfig
 from internals.Constants import TMP_DIR
+from internals.Datapoint import Datapoint
 
 
 class Repo:
@@ -63,18 +64,18 @@ class Repo:
         return self._git.iter_commits()
 
     @property
-    def loc(self) -> int:
+    def statistics(self) -> Datapoint:
         """
-        :return: The loc of this repository with the current commit checked out and submodules excluded.
+        :return: The statistics of this repository with the current commit checked out and submodules excluded.
         """
         scc_dir = self._dir + "/" + self._config.dir
         scc_command = ["scc"] + [scc_dir] + self._config.scc.scc_command_flags
         result_str = run(scc_command, capture_output=True, text=True).stdout
         result = loads(result_str)
-        locs = 0
+        datapoint = Datapoint(self._git.head.commit.committed_date)
         for lang_result in result:
-            locs += lang_result["Code"]
-        return locs
+            datapoint.add(lang_result)
+        return datapoint
 
     def clone_and_get_repo(self) -> git.Repo:
         """

@@ -104,16 +104,33 @@ You can override submodules with a repository after the parent repository to hav
 
 The output JSON file consists of a list of datapoint objects:
 
-- `x`: UNIX timestamp
-- `y`: Lines of Code
+- `timestamp`: UNIX timestamp
+- `lines`: Total number of lines
+- `code`: Number of lines of code
+- `comment`: Number of lines of comments
+- `blank`: Number of blank lines
+- `wcomplexity`: Weighted complexity
 
 Here is an example output:
 
 ```json
 [
-  {"x": 1609688285, "y": 21910},
-  {"x": 1609691405, "y": 22500},
-  ...
+  {
+    "timestamp": 1519886665,
+    "lines": 35,
+    "code": 24,
+    "comment": 4,
+    "blank": 7,
+    "wcomplexity": 0
+  },
+  {
+    "timestamp": 1519937828,
+    "lines": 92,
+    "code": 68,
+    "comment": 8,
+    "blank": 16,
+    "wcomplexity": 0
+  }
 ]
 ```
 
