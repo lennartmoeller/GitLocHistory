@@ -1,0 +1,52 @@
+{
+  "name": "git-loc-history-viewer",
+  "description": "Displays a diagram to visualize the GitLocHistory data",
+  "private": true,
+  "keywords": [],
+  "author": "Lennart Möller",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^4.2.1",
+    "chartjs-adapter-luxon": "^1.3.1",
+    "cross-env": "^7.0.3"
+  },
+  "devDependencies": {
+    "luxon": "^3.3.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/luxon": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.36.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "sass": "^1.59.3",
+    "sass-loader": "^13.2.0",
+    "svelte": "^3.57.0",
+    "svelte-loader": "^3.1.7",
+    "svelte-preprocess": "^5.0.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "scripts": {
+    "watch": "webpack --watch --stats-error-details",
+    "build": "cross-env NODE_ENV=production webpack --stats-error-details"
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lennartmoeller/GitLocHistory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lennartmoeller/GitLocHistory/issues"
+  },
+  "homepage": "https://github.com/lennartmoeller/GitLocHistory#readme"
+}
