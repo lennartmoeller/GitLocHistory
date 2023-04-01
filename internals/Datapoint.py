@@ -9,10 +9,11 @@ class Datapoint:
     """
 
     timestamp: int
-    lines: int = 0
-    code: int = 0
-    comment: int = 0
-    blank: int = 0
+    loc: int = 0
+    lloc: int = 0
+    sloc: int = 0
+    cloc: int = 0
+    eloc: int = 0
 
     def __init__(self, timestamp):
         """
@@ -26,7 +27,8 @@ class Datapoint:
         Adds the given data to this datapoint.
         :param data: The data to add.
         """
-        self.lines += data["Lines"] if type(data) is dict else data.lines
-        self.code += data["Code"] if type(data) is dict else data.code
-        self.comment += data["Comment"] if type(data) is dict else data.comment
-        self.blank += data["Blank"] if type(data) is dict else data.blank
+        self.loc += data["Lines"] if type(data) is dict else data.loc
+        self.sloc += data["Code"] if type(data) is dict else data.sloc
+        self.cloc += data["Comment"] if type(data) is dict else data.cloc
+        self.eloc += data["Blank"] if type(data) is dict else data.eloc
+        self.lloc = self.sloc + self.cloc

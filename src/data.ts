@@ -3,4 +3,4 @@
  */
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-export const data: [{'timestamp': number, 'lines': number, 'code': number, 'comment': number, 'blank': number}] = glhData ?? []
+export const data: [{'timestamp': number, 'loc': number, 'lloc': number, 'sloc': number, 'cloc': number, 'eloc': number}] = glhData ?? []

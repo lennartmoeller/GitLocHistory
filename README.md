@@ -1,10 +1,21 @@
 # GitLocHistory
 
-GitLocHistory is a command line tool that calculates and visualizes the history of total lines (LOC), code lines (SLOC), comment lines (CLOC) and empty lines (ELOC) of Git repositories. In addition to individual ones, multiple Git repositories and repositories with submodules can also be processed simultaneously, with the statistics summed together.
+GitLocHistory is a command line tool that calculates and visualizes the history of total lines (LOC), code lines (SLOC), comment lines (CLOC), logical lines (LLOC) and empty lines (ELOC) of Git repositories. In addition to individual ones, multiple Git repositories and repositories with submodules can also be processed simultaneously, with the statistics summed together.
 
 GitLocHistory uses `scc` (https://github.com/boyter/scc), a gold standard for calculating lines of code.
 
 ![Demo Diagram](assets/demo-diagram.png)
+
+
+## Terminology
+
+There are different understandings of which abbreviation means what. Here the abbreviations are used as follows:
+
+- **LOC**: Total lines of code (SLOC + CLOC + ELOC)
+- **LLOC**: Lines of logical code (SLOC + CLOC)
+- **SLOC**: Lines of source code
+- **CLOC**: Lines of comments
+- **ELOC**: Blank (empty) lines
 
 
 ## Prerequisites
@@ -110,28 +121,31 @@ You can override submodules with a repository after the parent repository to hav
 The output JSON file consists of a list of datapoint objects:
 
 - `timestamp`: UNIX timestamp
-- `lines`: Number of total lines (LOC)
-- `code`: Number of code lines (SLOC)
-- `comment`: Number of comment lines (CLOC)
-- `blank`: Number of empty lines (ELOC)
+- `loc`: Number of total lines (SLOC + CLOC + ELOC)
+- `sloc`: Number of source code lines (SLOC)
+- `cloc`: Number of comment lines (CLOC)
+- `eloc`: Number of blank (empty) lines (ELOC)
+- `lloc`: Number of logical code lines (SLOC + CLOC)
 
 Here is an example output:
 
 ```json
 [
   {
-    "timestamp": 1519886665,
-    "lines": 35,
-    "code": 24,
-    "comment": 4,
-    "blank": 7
+    "timestamp": 1609688285,
+    "loc": 2980,
+    "sloc": 1668,
+    "cloc": 944,
+    "eloc": 368,
+    "lloc": 2612
   },
   {
-    "timestamp": 1519937828,
-    "lines": 92,
-    "code": 68,
-    "comment": 8,
-    "blank": 16
+     "timestamp": 1617543422,
+     "loc": 3726,
+     "sloc": 2118,
+     "cloc": 1153,
+     "eloc": 455,
+     "lloc": 3271
   }
 ]
 ```

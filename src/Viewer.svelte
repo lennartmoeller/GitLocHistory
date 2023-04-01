@@ -41,17 +41,19 @@
      */
     function getChartData(): ChartData {
         const datapointSets = {
-            'Lines': [],
-            'Code': [],
-            'Comment': [],
-            'Blank': [],
+            'LOC': [],
+            'LLOC': [],
+            'SLOC': [],
+            'CLOC': [],
+            'ELOC': []
         }
         data.forEach(datapoint => {
             const time = DateTime.fromSeconds(datapoint.timestamp).toISO()
-            datapointSets['Lines'].push({x: time, y: datapoint.lines})
-            datapointSets['Code'].push({x: time, y: datapoint.code})
-            datapointSets['Comment'].push({x: time, y: datapoint.comment})
-            datapointSets['Blank'].push({x: time, y: datapoint.blank})
+            datapointSets['LOC'].push({x: time, y: datapoint.loc})
+            datapointSets['LLOC'].push({x: time, y: datapoint.lloc})
+            datapointSets['SLOC'].push({x: time, y: datapoint.sloc})
+            datapointSets['CLOC'].push({x: time, y: datapoint.cloc})
+            datapointSets['ELOC'].push({x: time, y: datapoint.eloc})
         })
         const chartData = {datasets: []}
         Object.keys(datapointSets).forEach(label => chartData.datasets.push({
