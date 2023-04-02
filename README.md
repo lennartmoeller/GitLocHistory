@@ -9,7 +9,7 @@ GitLocHistory uses `scc` (https://github.com/boyter/scc), a gold standard for ca
 
 ## Terminology
 
-There are different understandings of which abbreviation means what. Here the abbreviations are used as follows:
+There are different understandings of which abbreviation means what. In this project the abbreviations are used as follows:
 
 - **LOC**: Total lines of code (SLOC + CLOC + ELOC)
 - **LLOC**: Lines of logical code (SLOC + CLOC)
@@ -30,32 +30,31 @@ Before you can use GitLocHistory, you need to have the following tools installed
 
 ## Installation & Usage
 
-1. Clone the GitLocHistory repository to your local machine.
+1. [Download the latest release](https://github.com/lennartmoeller/GitLocHistory/releases/latest/download/glh.zip) and extract the zip file.
+
+2. Open a terminal and navigate to the extracted directory.
+
+3. Install the required Python packages:
    ```shell
-   git clone git:github.com/lennartmoeller/GitLocHistory.git
+   pip3 install -r requirements.txt
    ```
 
-2. Install the required Python packages.
+4. Modify the file named `config.json`. See the Configuration section for more details.
+
+5. Run GitLocHistory:
    ```shell
-   pip3 install -r GitLocHistory/requirements.txt
+   python3 glh.py
    ```
 
-3. Modify the file named `config.json`. See the Configuration section for more details.
+6. Open the `viewer.html` file in your browser to view the result diagram.
 
-4. Run GitLocHistory.
-   ```shell
-   python3 GitLocHistory/glh.py
-   ```
-
-5. Open the `viewer.html` file in your browser to view the result diagram.
-
-6. The output is saved in the output JSON file in the `GitLocHistory` directory.
+7. The output is saved in the output JSON file.
 
 
 
 ## Configuration
 
-GitLocHistory uses a configuration file named `config.json` inside the `GitLocHistory` directory.
+GitLocHistory uses a configuration file named `config.json`.
 
 Here's an example `config.json` file:
 
