@@ -1,28 +1,22 @@
 {
-	"output": "output.json",
 	"repos": [
 		{
-			"url": "git@github.com:username/repository1.git",
-			"dir": "directory/to/analyse",
+			"url": "git@github.com:lennartmoeller/GitLocHistory.git",
 			"scc": {
-				"include_ext": [],
-				"exclude_ext": [],
-				"exclude_dir": []
-			}
-		},
-		{
-			"url": "git@github.com:username/repository2.git",
-			"include_submodules": false,
-			"scc": {
-				"include_ext": [],
-				"exclude_ext": [],
-				"exclude_dir": []
+				"exclude-dir": [
+					"assets",
+					"configs",
+					"dist",
+					"node_modules",
+					"release"
+				],
+				"include-ext": [
+					"py",
+					"ts",
+					"svelte",
+					"html"
+				]
 			}
 		}
-	],
-	"scc": {
-		"include_ext": [],
-		"exclude_ext": [],
-		"exclude_dir": []
-	}
+	]
 }
