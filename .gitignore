@@ -1,7 +1,8 @@
 # Project-specific
-dist/data.js
 configs/
+dist/
 output.json
+release/
 
 # macOS
 .DS_Store
